@@ -6,6 +6,11 @@ let startTime = null;
 // Helper: finish timing current site
   let siteTime = {};
 
+  chrome.storage.local.get("siteTime",(result) => {
+  siteTime=result.Sitetime || {};
+  console.log("loaded siteTime:",siteTime);
+  });
+
 function stopTracking() {
   if (!currentSite || !startTime) return;
 
